@@ -24,7 +24,7 @@ app.get("/api/weather", async (req, res) => {
     const weather = data.weather[0].main;
 
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" font-family=""Segoe UI", sans-serif">
         <rect width="300" height="50" fill="#1e1e1e" rx="10"/>
         <text x="150" y="30" font-size="20" fill="#fff" text-anchor="middle">
           ${location}: ${weather} (${temp}°C)
@@ -37,7 +37,7 @@ app.get("/api/weather", async (req, res) => {
     res.send(svg);
   } catch (err) {
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500">
         <rect width="300" height="50" fill="#600"/>
         <text x="150" y="30" fill="#fff" font-size="14" text-anchor="middle">
           Fehler: Ort nicht gefunden
