@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 module.exports = async (req, res) => {
   const location = req.query.location || "Berlin";
-  const API_KEY = process.env.OPENWEATHER_API_KEY;
+  const API_KEY = "7f1b6a905ecc9a654ae3720e6a575871";
 
   try {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&units=metric&appid=${API_KEY}`;
