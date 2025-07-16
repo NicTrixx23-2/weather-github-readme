@@ -30,7 +30,7 @@ app.get("/api/weather", async (req, res) => {
     const icon = weatherIcons[weather] || "🌡️";
 
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" font-family="'Segoe UI', sans-serif">
+      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" font-family="'Segoe UI', sans-serif", font-weight="bolder">
         <rect width="800" height="300" fill="#1e1e1e" rx="20"/>
         <text x="400" y="160" font-size="40" fill="#ffffff" text-anchor="middle">
           ${icon} ${location}: ${weather} (${temp}°C)
