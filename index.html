@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Wetter-Widget Generator</title></head>
+  <body style="font-family:sans-serif;text-align:center">
+    <h1>🌤️ Wetter-Widget Generator</h1>
+    <input id="location" placeholder="Stadt oder PLZ" />
+    <button onclick="generate()">Generieren</button>
+    <p id="result"></p>
+
+    <script>
+      function generate() {
+        const loc = encodeURIComponent(document.getElementById("location").value.trim());
+        const url = `https://dein-widget-service.com/api/weather?location=${loc}`;
+        document.getElementById("result").innerHTML = `
+          <code>![Wetter](<a href="${url}" target="_blank">${url}</a>)</code><br><br>
+          <img src="${url}" alt="Wetter Widget">
+        `;
+      }
+    </script>
+  </body>
+</html>
