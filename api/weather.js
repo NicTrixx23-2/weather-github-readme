@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     const weather = data.weather[0].main;
 
     const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="50" font-family=""Segoe UI", sans-serif">
+      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="50" font-family="'Segoe UI', sans-serif">
         <rect width="1000" height="500" fill="#1e1e1e" rx="10"/>
         <text x="150" y="30" font-size="20" fill="#fff" text-anchor="middle">
           ${location}: ${weather} (${temp}°C)
