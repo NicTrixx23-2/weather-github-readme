@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_KEY = process.env.OPENWEATHER_API_KEY;
+const API_KEY = "7f1b6a905ecc9a654ae3720e6a575871";
 
 // Static files from /public
 app.use(express.static("public"));
