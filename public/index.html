@@ -11,9 +11,14 @@
       function generate() {
         const loc = encodeURIComponent(document.getElementById("location").value.trim());
         const url = `https://weather-github-readme.onrender.com/api/weather?location=${loc}`;
+        
         document.getElementById("result").innerHTML = `
-          <code>![Wetter](<a href="${url}" target="_blank">${url}</a>)</code><br><br>
-          <img src="${url}" alt="Wetter Widget">
+          <p><strong>Markdown zum Einbetten:</strong></p>
+          <code>![Wetter](${url})</code><br><br>
+          <p><strong>Vorschau:</strong></p>
+          <a href="${url}" target="_blank">
+            <img src="${url}" alt="Wetter Widget" width="800" height="300">
+          </a>
         `;
       }
     </script>
