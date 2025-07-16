@@ -22,15 +22,14 @@ app.get("/api/weather", async (req, res) => {
 
     const temp = Math.round(data.main.temp);
     const weather = data.weather[0].main;
-
-    const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" font-family=""Segoe UI", sans-serif">
-        <rect width="300" height="50" fill="#1e1e1e" rx="10"/>
-        <text x="150" y="30" font-size="20" fill="#fff" text-anchor="middle">
-          ${location}: ${weather} (${temp}°C)
-        </text>
-      </svg>
-    `;
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" font-family="'Segoe UI', sans-serif">
+    <rect width="300" height="50" fill="#1e1e1e" rx="10"/>
+    <text x="150" y="30" font-size="20" fill="#fff" text-anchor="middle">
+      ${location}: ${weather} (${temp}°C)
+    </text>
+  </svg>
+`;
 
     res.setHeader("Content-Type", "image/svg+xml");
     res.setHeader("Cache-Control", "no-cache");
