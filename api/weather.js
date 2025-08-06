@@ -1,5 +1,4 @@
 const fetch = require("node-fetch");
-
 module.exports = async (req, res) => {
   const location = req.query.location || "Berlin";
   const API_KEY = "7f1b6a905ecc9a654ae3720e6a575871"; // ⚠️ Consider moving this to ENV on Render
