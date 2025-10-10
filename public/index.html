@@ -1,26 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head><title>Wetter-Widget Generator</title></head>
-  <body style="font-family:sans-serif;text-align:center">
-    <h1>🌤️ Wetter-Widget Generator</h1>
-    <input id="location" placeholder="Stadt oder PLZ" />
-    <button onclick="generate()">Generieren</button>
-    <p id="result"></p>
-
-    <script>
-      function generate() {
-        const loc = encodeURIComponent(document.getElementById("location").value.trim());
-        const url = `https://weather-github-readme.onrender.com/api/weather?location=${loc}`;
-        
-        document.getElementById("result").innerHTML = `
-          <p><strong>Markdown zum Einbetten:</strong></p>
-          <code>![Wetter](${url})</code><br><br>
-          <p><strong>Vorschau:</strong></p>
-          <a href="${url}" target="_blank">
-            <img src="${url}" alt="Wetter Widget" width="800" height="300">
-          </a>
-        `;
-      }
-    </script>
-  </body>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>🌤️ Wetter-Widget Generator</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+  <h1>🌤️ Wetter-Widget Generator</h1>
+  <input id="location" placeholder="Stadt oder PLZ" />
+  <button onclick="generate()">Generieren</button>
+  <div id="result" style="margin-top: 30px;"></div>
+  <script src="script.js"></script>
+</body>
 </html>
