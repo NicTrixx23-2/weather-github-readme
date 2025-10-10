@@ -1,39 +1,35 @@
+const express = require("express");
 const fetch = require("node-fetch");
+const path = require("path");
 
-const escapeXml = (unsafe) => {
+const app = express();
+const API_KEY = process.env.OPENWEATHER_API_KEY;
+
+const weatherIcons = {
+  Clear: "☀️", Clouds: "☁️", Rain: "🌧️",
+  Snow: "❄️", Thunderstorm: "⛈️", Drizzle: "🌦️", Mist: "🌫️"
+};
+
+function escapeXml(unsafe) {
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&apos;");
-};
+}
 
-module.exports = async (req, res) => {
+app.use(express.static(path.join(__dirname, "..", "public")));
+
+app.get("/api/weather", async (req, res) => {
   const location = req.query.location || "Berlin";
-  const API_KEY = "7f1b6a905ecc9a654ae3720e6a575871"; // ⚠️ In .env auslagern
-
-  const weatherIcons = {
-    Clear: "☀️",
-    Clouds: "☁️",
-    Rain: "🌧️",
-    Snow: "❄️",
-    Thunderstorm: "⛈️",
-    Drizzle: "🌦️",
-    Mist: "🌫️",
-  };
 
   try {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-      location
-    )}&units=metric&appid=${API_KEY}`;
-
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&units=metric&appid=${API_KEY}`;
     const response = await fetch(url);
     const data = await response.json();
 
-    if (!data.main || !data.weather || data.cod !== 200) {
-      throw new Error(data.message || "Invalid location");
-    }
+    if (!data.main || !data.weather || data.cod !== 200) throw new Error("Invalid location");
 
     const temp = Math.round(data.main.temp);
     const weather = data.weather[0].main;
@@ -67,4 +63,6 @@ module.exports = async (req, res) => {
     res.setHeader("Cache-Control", "no-cache");
     res.send(errorSVG);
   }
-};
+});
+
+module.exports = app;
