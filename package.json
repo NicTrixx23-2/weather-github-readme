@@ -1,6 +1,7 @@
 {
-  "name": "wetter-widget",
+  "name": "weather-widget",
   "version": "1.0.0",
+  "description": "A dynamic weather SVG widget",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
