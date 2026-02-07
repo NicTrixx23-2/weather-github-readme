@@ -21,7 +21,7 @@ function escapeXml(unsafe) {
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-app.get("/api/weather", async (req, res) => {
+app.get("/api/app", async (req, res) => {
   const location = req.query.location || "Berlin";
 
   try {
