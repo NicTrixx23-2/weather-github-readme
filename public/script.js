@@ -1,6 +1,6 @@
 function generate() {
   const loc = encodeURIComponent(document.getElementById("location").value.trim());
-  const url = `${window.location.origin}/api/weather?location=${loc}`;
+  const url = `${window.location.origin}/api/app?location=${loc}`;
   document.getElementById("result").innerHTML = `
     <p>Markdown:</p>
     <code>![Wetter](${url})</code>
